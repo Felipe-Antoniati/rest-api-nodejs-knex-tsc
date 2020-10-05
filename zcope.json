@@ -1,0 +1,42 @@
+{
+  "title": "Escopo utilizado no Desenvolvimento desta API",
+  "server":{
+    "step_one": {
+      "actionDescription": "Criar a Pasta raiz do projeto",
+      "executeCode": "mkdir server"
+    },
+    "step_two":{
+      "actionDescription": "Iniciar o Arquivo package.json",
+      "executeCode": "npm init -y"
+    },
+    "step_three":{
+      "actionDescription": "Instalar as Dependências",
+      "executeCode": "npm i -s express cors helmet http"
+    },
+    "step_four":{
+      "actionDescription": "Instalar as Dependências de Desenvolvimento",
+      "executeCode": "npm i -s typescript ts-node-dev @types/express @types/cors @types/helmet -D"
+    },
+    "step_five":{
+      "actionDescription": "Criar Pasta para armazenar estrutura da API",
+      "executeCode": "mkdir src"
+    },
+    "step_six":{
+      "actionDescription": "Criar arquivos padrões principais",
+      "executeCode": "cd src && touch server.ts routes.ts"
+    },
+    "step_seven":{
+      "actionDescription": "Iniciar Arquivo de Configurações do Typescript",
+      "executeCode": "tsc --init"
+    },
+    "step_eight":{
+      "actionDescription": "Estrutura padrão de código do Servidor"
+    },
+    "step_nine":{
+      "actionDescription": "Estrutura padrão de código das Rotas"
+    },
+    "step_ten":{
+      "actionDescription": "Enviar mensagem: Hello World, no formato JSON "
+    }
+  }
+}
