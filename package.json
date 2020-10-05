@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "knex": "^0.21.6",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",
