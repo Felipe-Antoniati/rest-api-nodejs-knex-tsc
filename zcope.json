@@ -1,38 +1,39 @@
 {
   "title": "Escopo utilizado no Desenvolvimento desta API",
+
   "serverSetup":{
     "step_one":{
       "actionDescription": "Iniciar Arquivo package.json",
       "executeCode": "npm init -y"
     },
     "step_two":{
-      "actionDescription": "Instalar Dependências",
+      "actionDescription": "Instalar Dependências.",
       "executeCode": "npm i -s express cors helmet http"
     },
     "step_three":{
-      "actionDescription": "Instalar Dependências de Desenvolvimento",
+      "actionDescription": "Instalar Dependências de Desenvolvimento.",
       "executeCode": "npm i -s typescript ts-node-dev @types/express @types/cors @types/helmet -D"
     },
     "step_four":{
-      "actionDescription": "Criar Pasta para armazenar estrutura da API",
+      "actionDescription": "Criar Pasta para armazenar estrutura da API.",
       "executeCode": "mkdir src"
     },
     "step_five":{
-      "actionDescription": "Iniciar Arquivo de Configurações do Typescript",
+      "actionDescription": "Iniciar Arquivo de Configurações do Typescript.",
       "executeCode": "tsc --init"
     },
     "step_six":{
-      "actionDescription": "Criar Arquivo padrão para o Servidor e Estruturar o código"
+      "actionDescription": "Criar Arquivo padrão para o Servidor e Estruturar o código."
     },
     "step_seven":{
-      "actionDescription": "Criar Arquivo padrão para as Rotas e Estruturar o código"
+      "actionDescription": "Criar Arquivo padrão para as Rotas e Estruturar o código."
     },
     "step_height":{
-      "actionDescription": "Criar Script de inicialização",
+      "actionDescription": "Criar Script de inicialização.",
       "executeCode":"tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
     },
     "step_nine":{
-      "actionDescription": "Iniciar Servidor",
+      "actionDescription": "Iniciar Servidor.",
       "executeCode":"npm run dev"
 
     }
@@ -40,11 +41,11 @@
 
   "databaseSetup":{
     "step_one":{
-      "actionDescription": "Criar pasta para armazenar estrutura da Base de dados",
+      "actionDescription": "Criar pasta para armazenar estrutura da Base de dados.",
       "executeCode": "cd src && mkdir database"
     },
     "step_two":{
-      "actionDescription": "Instalar Dependências",
+      "actionDescription": "Instalar Dependências.",
       "executeCode": "npm i -s knex sqlite3"
     },
     "step_three":{
@@ -52,15 +53,32 @@
       "executeCode": "cd database && touch connection.ts"
     },
     "step_four":{
-      "actionDescription": "Criar Script de Migração",
+      "actionDescription": "Criar Script de Migração.",
       "executeCode": "knex --knexfile knexfile.ts migrate:latest"
     },
     "step_five":{
-      "actionDescription": "Atribuir o caminho das migrações no Arquivo com o ambiente de desenvolvimento local"
+      "actionDescription": "Atribuir o caminho das migrações no Arquivo com o ambiente de desenvolvimento local."
     },
     "step_six":{
       "actionDescription": "Realizar as Migrações das Tabelas para à Base de dados.",
       "executeCode": "npm run knex:migrate"
+    }
+  },
+
+  "controllersSetup":{
+    "step_one":{
+      "actionDescription": "Criar pasta para armazenar os controladores.",
+      "executeCode": "cd src && mkdir controllers"
+    },
+    "step_two":{
+      "actionDescription": "Criar Arquivos de CRUD das entidades e Estruturar o código.",
+      "executeCode": "cd database && touch connection.ts"
+    },
+    "step_four":{
+      "actionDescription": "Atribuir os controladores à Rotas especificas."
+    },
+    "step_five":{
+      "actionDescription": "Testar Rotas utilizando o Insomnia."
     }
   }
 }

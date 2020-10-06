@@ -1,11 +1,10 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+
+import UsersController from './controllers/c1_usersController';
+const usercontroller = new UsersController();
 
 const routers = Router();
 
-routers.get('/', (req: Request, res: Response) => {
-  return res.json({
-    message: 'Hello World'
-  })
-});
+routers.post('/register', usercontroller.create);
 
 export default routers;
