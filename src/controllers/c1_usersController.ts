@@ -18,10 +18,9 @@ export default class userController {
       await connectionToDataBase('users').insert({
         id, firstname, lastname, email, password
       });
-      // Retorne uma mensagem de sucesso com os dados do usuário criado;
+      // Mensagem de sucesso (direcionar usuário para o login)
       return res.status(201).json({
-        message: 'User created successfully!',
-        welcome: firstname
+        message: 'User created successfully! now just login.',
       });
       
       // Se der errado, retorne uma mensagem de erro inesperado.
