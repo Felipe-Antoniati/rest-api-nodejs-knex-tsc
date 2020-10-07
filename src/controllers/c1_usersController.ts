@@ -10,11 +10,23 @@ export default class userController {
       firstname, lastname, email, password
     } = req.body;
     
-    // Criar um hash para o ID de usuário;
-    const id = crypto.randomBytes(16).toString('hex');
-
-    // Tente inserir os dados de usuário na Base de dados;
     try {
+      // Verificar se o usuário já existe na base de dados;
+      const veryUser = await connectionToDataBase('users')
+        .where({email})
+        .select('email')
+        .first()
+      ; // Se existir enviar uma mensagem de erro;
+      if(veryUser) {
+        return res.status(403).json({
+          error: 'User already exists'
+        });
+      };
+
+      // Criar um hash para o ID de usuário;
+      const id = crypto.randomBytes(16).toString('hex');
+
+      // Inserir usuário na base dados;
       await connectionToDataBase('users').insert({
         id, firstname, lastname, email, password
       });

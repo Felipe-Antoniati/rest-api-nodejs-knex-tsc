@@ -11,10 +11,10 @@ export default class loginAuhtorizationController {
     } = req.body;
     
     try {
-      // Buscar senha do usuário na base de dados para validação;
+      // Buscar email e senhas do usuário para validação;
       const user = await connectionToDataBase('users')
-        .where({email: email})
-        .select('firstname', 'password')
+        .where({email})
+        .select('email', 'password')
         .first()
       ;
       // Validar se o usuário existe na base de dados;
@@ -30,14 +30,14 @@ export default class loginAuhtorizationController {
         });
       };
 
-      // Mensagem de sucesso com os dados do usuário;
+      // Mensagem de sucesso com os dados do usuário e token;
       return res.status(200).json({
         message: 'Logon successful',
         user: user.firstname,
         token: generateToken({id: user.id})
       });
       
-      // Se der errado, retorne uma mensagem de erro inesperado.
+    // Se der errado, retorne uma mensagem de erro inesperado.
     } catch (err) {
       console.log(err);
       return res.status(400).json({ 
